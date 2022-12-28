@@ -1,3 +1,5 @@
+import 'package:connect_with/screens/contacts_screen.dart';
+import 'package:connect_with/screens/settings_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../resources/auth_methods.dart';
@@ -24,8 +26,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Widget> pages = [
     MeetingScreen(),
     HistoryMeetingScreen(),
-    Text('Contacts'),
-    CustomButton(text: 'Log Out', onPressed: () => AuthMethods().logoutUser()),
+    ContactScreen(),
+    SettingsScreen(),
   ];
 
   @override

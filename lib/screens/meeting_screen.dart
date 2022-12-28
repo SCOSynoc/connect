@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:connect_with/resources/auth_methods.dart';
 import 'package:connect_with/screens/video_call_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,10 @@ class MeetingScreen extends StatefulWidget {
 class _MeetingScreenState extends State<MeetingScreen> {
 
   final JitsiMeetMethods _jitsiMeetMethods = JitsiMeetMethods();
+  final AuthMethods _authMethods = AuthMethods();
 
   createNewMeeting() async {
+
     var random = Random();
     String roomName = (random.nextInt(10000000) + 10000000).toString();
     _jitsiMeetMethods.createMeeting(roomName: roomName, isVideoMuted: true, isAudioMuted: true);

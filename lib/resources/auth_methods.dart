@@ -41,24 +41,33 @@ class AuthMethods {
     return sign;
 }
 
-    loginuserwithEmail(BuildContext context,String emailAddress, String password) async{
+  Future<bool> loginuserwithEmail(BuildContext context,String emailAddress, String password) async{
+   bool login = false;
       try {
         final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: emailAddress,
             password: password
         );
 
+        User? user = credential.user;
 
+        if(user != null){
+          login = true;
+        }
 
       } on FirebaseAuthException catch (e) {
         if (e.code == 'user-not-found') {
+          login = false;
           showSnackBar(context, '${e.message}');
           print('No user found for that email.');
         } else if (e.code == 'wrong-password') {
+          login = false;
           showSnackBar(context, '${e.message}');
           print('Wrong password provided for that user.');
         }
       }
+
+      return login;
     }
 
     logoutUser() async {

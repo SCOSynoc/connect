@@ -50,7 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Padding(
                 padding: const EdgeInsets.all(18.0),
                 child: CustomButton(
-                    text: "Google Sign In",
+                    text: "Sign In",
                     onPressed: () async {
                       bool signed = await _authMethods.signInUserWithEmail(context, emailController.text, passwordController.text);
                       if(signed){
@@ -58,7 +58,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       }
 
                 }),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.all(18.0),
+                child: CustomButton(
+                    text: "Log In",
+                    onPressed: () async {
+                      bool logged = await _authMethods.loginuserwithEmail(context, emailController.text, passwordController.text);
+                      if(logged){
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen()));
+                      }
+                    }),
+              ),
 
             ],
           ),

@@ -39,6 +39,8 @@ dependencies:
   cloud_firestore: ^3.4.6
   google_sign_in: ^5.2.4
   jitsi_meet: ^4.0.0
+  contacts_service: ^0.6.3
+  permission_handler: ^10.0.1
 
 
 dev_dependencies:

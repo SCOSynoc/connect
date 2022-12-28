@@ -20,6 +20,14 @@ class _HistoryMeetingScreenState extends State<HistoryMeetingScreen> {
             child: CircularProgressIndicator(),
           );
         }
+        if(!snapshot.hasData) {
+          return const Center(
+            child:Text("No meetings saved",style:TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            )) ,
+          );
+        }
         return ListView.builder(
             itemCount: snapshot.data.docs.length,
             itemBuilder: (context, index) => ListTile(

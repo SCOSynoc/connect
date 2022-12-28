@@ -21,7 +21,7 @@ class JitsiMeetMethods {
        featureFlag.resolution = FeatureFlagVideoResolution.MD_RESOLUTION;
        String name;
        if (username.isEmpty) {
-         name = _authMethods.user.displayName!;
+         name = _authMethods.user.email! ;
        } else {
          name = username;
        }
